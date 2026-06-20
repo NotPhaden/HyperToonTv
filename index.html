@@ -1,0 +1,147 @@
+
+<head>
+    <link rel="icon" type="image/png" href="logo.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HYPERTOON</title>
+
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+
+<link rel="preload" as="image" href="logo.png">
+</head>
+
+<body>
+
+<header>
+    <img src="logo.png" class="logo" alt="HYPERTOON">
+</header>
+
+<main class="content">
+<div class="grid" id="grid">
+
+    <div class="card" data-id="soy">
+        <img loading="lazy" decoding="async" src="soy.jpg" alt="Soy Luna">
+        <div class="card-title">Soy Luna</div>
+    </div>
+
+    <div class="card" data-id="simsala">
+        <img loading="lazy" decoding="async" src="simsala.jpg" alt="Simsala Grimm">
+        <div class="card-title">Simsala Grimm</div>
+    </div>
+
+    <div class="card" data-id="flint">
+        <img loading="lazy" decoding="async" src="flint.jpg" alt="Flintstones">
+        <div class="card-title">Flintstones</div>
+    </div>
+
+    <div class="card" data-id="printesa">
+        <img loading="lazy" decoding="async" src="printesa.jpg" alt="Prințesa Balerină">
+        <div class="card-title">Prințesa Balerină</div>
+    </div>
+
+    <div class="card" data-id="catel">
+        <img loading="lazy" decoding="async" src="catel.jpg" alt="Cățelul Blogger">
+        <div class="card-title">Cățelul Blogger</div>
+    </div>
+
+    <div class="card" data-id="bona">
+        <img loading="lazy" decoding="async" src="bona.jpg" alt="Bona Mea Este Un Vampir">
+        <div class="card-title">Bona Mea Este Un Vampir</div>
+    </div>
+
+    <div class="card" data-id="tom">
+        <img loading="lazy" decoding="async" src="tom.jpg" alt="Tom și Jerry">
+        <div class="card-title">Tom & Jerry</div>
+    </div>
+
+    <div class="card" data-id="dorinte">
+        <img loading="lazy" decoding="async" src="dorinte.jpg" alt="16 Dorințe">
+        <div class="card-title">16 Dorințe</div>
+    </div>
+
+    <div class="card" data-id="better">
+        <img loading="lazy" decoding="async" src="betterboy.jpg" alt="Better Boy">
+        <div class="card-title">Better Boy</div>
+    </div>
+
+    <div class="card" data-id="camp">
+        <img loading="lazy" decoding="async" src="camprock.jpg" alt="Camp Rock">
+        <div class="card-title">Camp Rock</div>
+    </div>
+
+    <div class="card" data-id="winniethepooh">
+        <img loading="lazy" decoding="async" src="pooh.jpg" alt="Winnie the Pooh">
+        <div class="card-title">Winnie the Pooh</div>
+    </div>
+
+    <div class="card" data-id="nemo">
+        <img loading="lazy" decoding="async" src="nemo.jpg" alt="În căutarea lui Nemo">
+        <div class="card-title">În căutarea lui Nemo</div>
+    </div>
+
+    <div class="card" data-id="cvadrupleti">
+        <img loading="lazy" decoding="async" src="cvadrupleti.jpg" alt="Cvadrupleți">
+        <div class="card-title">Nicky, Ricki, Dicky și Dawn</div>
+    </div>
+
+    <div class="card" data-id="moana">
+        <img loading="lazy" decoding="async" src="moana.jpg" alt="Moana">
+        <div class="card-title">Moana</div>
+    </div>
+
+    <div class="card" data-id="ratatouile">
+        <img loading="lazy" decoding="async" src="ratatouille.jpg" alt="Ratatouille">
+        <div class="card-title">Ratatouille</div>
+    </div>
+
+    <div class="card" data-id="elementar">
+        <img loading="lazy" decoding="async" src="elementar.jpg" alt="Elementar">
+        <div class="card-title">Elementar</div>
+    </div>
+
+    <div class="card" data-id="magiesusulinjos">
+        <img loading="lazy" decoding="async" src="magie.jpg" alt="Magie cu Susul în Jos">
+        <div class="card-title">Magie cu Susul în Jos</div>
+    </div>
+
+    <div class="card" data-id="echipadecatei">
+        <img loading="lazy" decoding="async" src="echipa.jpg" alt="Echipa de Căței">
+        <div class="card-title">Echipa de Căței</div>
+    </div>
+
+    <div class="card" data-id="balto">
+        <img loading="lazy" decoding="async" src="balto.jpg" alt="Balto">
+        <div class="card-title">Balto</div>
+    </div>
+
+    <div class="card" data-id="hunter">
+        <img loading="lazy" decoding="async" src="hunter.jpg" alt="Familia Hunter">
+        <div class="card-title">Familia Hunter</div>
+    </div>
+
+    <div class="card" data-id="acasa">
+        <img loading="lazy" decoding="async" src="acasa.jpg" alt="Acasă">
+        <div class="card-title">Home → Acasă</div>
+    </div>
+
+    <div class="card" data-id="bal">
+        <img loading="lazy" decoding="async" src="bal.jpg" alt="Ziua Balului">
+        <div class="card-title">Ziua Balului</div>
+    </div>
+
+</div>
+</main>
+
+<script>
+document.getElementById("grid").addEventListener("click", (e) => {
+    const card = e.target.closest(".card");
+    if (!card) return;
+
+    const id = card.dataset.id;
+    location.href = "player.html?id=" + encodeURIComponent(id);
+});
+</script>
+
+</body>

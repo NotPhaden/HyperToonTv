@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="player-page">
+
+<button class="btn back" onclick="location.href='index.html'">
+← Înapoi
+</button>
+
+<div class="player-box">
+
+<div class="video-wrapper">
+<iframe id="player" allowfullscreen></iframe>
+</div>
+
+<div class="servers">
+<button class="btn active" onclick="setServer(1)">Server 1</button>
+<button class="btn" onclick="setServer(2)">Server 2</button>
+</div>
+
+</div>
+
+<div class="episodes">
+<h2>Episoade</h2>
+<div id="episodes" class="episodes-grid"></div>
+</div>
+
+</div>
+
+<script>
+
+const data = {
+    soy:[
+        {
+            s1:"RUMBLE_LINK",
+            s2:"ARCHIVE_LINK"
+        }
+    ]
+};
+
+const id = new URLSearchParams(location.search).get("id");
+
+const episodes = data[id] || [];
+
+let current = 0;
+let server = 1;
+
+const player = document.getElementById("player");
+const list = document.getElementById("episodes");
+
+function getLink(ep){
+    return server===1 ? ep.s1 : ep.s2;
+}
+
+function loadEpisode(index){
+
+    current=index;
+
+    player.src=getLink(episodes[index]);
+
+    localStorage.setItem(
+        "last_"+id,
+        index
+    );
+
+    updateButtons();
+}
+
+function updateButtons(){
+
+    document
+    .querySelectorAll(".ep")
+    .forEach((b,i)=>{
+        b.classList.toggle(
+            "active",
+            i===current
+        );
+    });
+}
+
+function setServer(s){
+
+    server=s;
+
+    document
+    .querySelectorAll(".servers .btn")
+    .forEach((b,i)=>{
+        b.classList.toggle(
+            "active",
+            i===s-1
+        );
+    });
+
+    loadEpisode(current);
+}
+
+episodes.forEach((ep,index)=>{
+
+    const btn=document.createElement("button");
+
+    btn.className="ep";
+
+    btn.textContent=
+        "EP "+(index+1);
+
+    btn.onclick=
+        ()=>loadEpisode(index);
+
+    list.appendChild(btn);
+});
+
+const saved=
+localStorage.getItem(
+    "last_"+id
+);
+
+loadEpisode(saved ? Number(saved) : 0);
+
+window.addEventListener(
+    "beforeunload",
+    ()=>{
+        player.src="";
+    }
+);
+
+</script>
+
+</body>
+</html>
